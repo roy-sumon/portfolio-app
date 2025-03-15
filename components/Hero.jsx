@@ -7,10 +7,10 @@ import SocialMediaLinks from "./SocialMediaLinks";
 
 const Hero = () => {
   return (
-    <div className="sm:flex gap-1 md:mt-10 lg:px-10">
+    <div className="sm:flex gap-1 md:pt-10 lg:px-10">
       <div className="px-3 sm:w-[50%]">
         <p className="uppercase text-xs my-4 text-gray-400">Hello, This is</p>
-        <h1 className="text-3xl md:text-5xl">
+        <h1 className="text-cWhite text-3xl md:text-5xl">
           <span className="text-primary">Sumon</span> Roy
         </h1>
         <p className="my-4 text-gray-400">Software Engineer</p>
@@ -41,7 +41,7 @@ const Hero = () => {
             </button>
           </Link>
           <Link href="/contact">
-            <button className="rounded-md ring-1 ring-primary px-4 py-2 hover:text-primary hover:ring-white">
+            <button className="text-white rounded-md ring-1 ring-primary px-4 py-2 hover:text-primary hover:ring-white">
               Contact Now
             </button>
           </Link>

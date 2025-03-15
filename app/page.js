@@ -8,7 +8,7 @@ import Contact from "@/app/contact/page";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-bgDark">
       <Hero />
       <ShowcaseCard />
       <About />

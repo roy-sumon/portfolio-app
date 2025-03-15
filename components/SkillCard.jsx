@@ -12,7 +12,7 @@ const SkillCard = () => {
               className="bg-[#1e1e1e] m-2 p-3 rounded-md flex flex-col justify-center items-center hover:ring-1 hover:ring-primary hover:text-primary cursor-pointer"
             >
               <span className="mb-2">{card.icon}</span>
-              <p className="text-lg">{card.title}</p>
+              <p className="text-cWhite text-lg">{card.title}</p>
             </div>
           );
         })}

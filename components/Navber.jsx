@@ -17,10 +17,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className='flex justify-between px-3 py-4 items-center lg:px-12'>
+    <nav className='bg-bgDark flex justify-between px-3 py-4 items-center lg:px-12'>
       <div className='font-pacifico text-lg md:text-3xl'>
         <Link href="/">
-          <h1>
+          <h1 className='text-cWhite'>
             <span className='text-primary'>S</span>umon <span className='text-primary'>R</span>oy
           </h1>
         </Link>

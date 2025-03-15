@@ -20,7 +20,7 @@ const AboutPage = () => {
 
       <div className="sm:w-[70%] md:w-[60%]">
         <p className="text-gray-400 gap-1 my-4">About Me</p>
-        <h1 className="text-2xl sm:text-4xl my-4">
+        <h1 className="text-cWhite text-2xl sm:text-4xl my-4">
           <span className="text-primary">Driven,</span> Innovative <br />
           Software <span className="text-primary">Engineer</span>
         </h1>
@@ -39,31 +39,31 @@ const AboutPage = () => {
           customizable web applications.
         </p>
 
-        <div className="flex items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Develop responsive & user-friendly web applications.
           </p>
         </div>
-        <div className="flex items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Build dynamic UIs with ReactJS and NextJS.
           </p>
         </div>
-        <div className="flex items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Integrate RESTful APIs for back-end services.
           </p>
         </div>
-        <div className="flex items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Utilize debugging tools to identify and fix code issues.
           </p>
         </div>
-        <div className="flex items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Implement state management with Redux toolkit.

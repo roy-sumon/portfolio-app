@@ -8,7 +8,7 @@ const SkillPage = () => {
         <p>
           My <span className="text-primary">Telent</span>
         </p>
-        <h1 className="text-2xl sm:text-4xl">Professional Skills</h1>
+        <h1 className="text-cWhite text-2xl sm:text-4xl">Professional Skills</h1>
         <p className="text-primary">Tools & Technologies</p>
       </div>
       <div className='md:mt-5'>

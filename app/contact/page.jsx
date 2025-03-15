@@ -6,14 +6,14 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 const ContactPage = () => {
   return (
-    <div className="p-2 md:flex md:mt-12 lg:mx-10">
+    <div className="p-2 md:flex md:mt-12 lg:mx-10 pb-8">
       <div className="pl-2">
         <p className="text-gray-400 text-sm sm:text-base">Get in Touch</p>
-        <h1 className="text-xl my-4 sm:text-3xl">
+        <h1 className="text-cWhite text-xl my-4 sm:text-3xl">
           Let's Talk For your <br />
           <span className="text-primary"> Next Projects</span>
         </h1>
-        <p className="text-justify mb-4 pr-5">
+        <p className="text-cWhite text-justify mb-4 pr-5">
           Discuss a project or just want to say hi? connect with me via email or
           through phone call.
         </p>

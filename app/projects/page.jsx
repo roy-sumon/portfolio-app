@@ -12,8 +12,8 @@ const Projectpage = () => {
   return (
     <div className="p-2 md:mt-10 lg:mx-10">
       <div className="text-center my-3 md:mb-5">
-        <p className="text-sm">Latest <span className="text-primary">Works</span></p>
-        <h1 className="text-2xl sm:text-3xl">
+        <p className="text-sm text-cWhite">Latest <span className="text-primary">Works</span></p>
+        <h1 className="text-2xl text-cWhite sm:text-3xl">
           Explore My Popular <span className="text-primary">Projects</span>
         </h1>
       </div>
@@ -31,7 +31,7 @@ const Projectpage = () => {
         </div>
         <div className="mx-auto my-auto mt-3">
           <p className="text-xs text-primary">Desktop Application</p>
-          <h1 className="text-xl my-3 sm:text-2xl">
+          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
             Hospital Management System{" "}
             <span className="text-sm text-primary">(Java Swing & MySQL)</span>
           </h1>
@@ -65,7 +65,7 @@ const Projectpage = () => {
       <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] my-4 p-4 rounded-md sm:gap-4">
         <div className="mx-auto mt-3">
           <p className="text-xs text-primary">Desktop Application</p>
-          <h1 className="text-xl my-3 sm:text-2xl">
+          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
             Basic Calculator{" "}
             <span className="text-sm text-primary">(Java Swing)</span>
           </h1>
@@ -117,7 +117,7 @@ const Projectpage = () => {
         </div>
         <div className="mx-auto my-auto mt-3">
           <p className="text-xs text-primary">Web Application</p>
-          <h1 className="text-xl my-3 sm:text-2xl">
+          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
             Mess Meal Manager App{" "}
             <span className="text-sm text-primary">
               (ReactJS & Tailwind CSS)
@@ -153,7 +153,7 @@ const Projectpage = () => {
       <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] my-4 p-4 rounded-md sm:gap-4">
         <div className="mx-auto mt-3">
           <p className="text-xs text-primary">Web Application</p>
-          <h1 className="text-xl my-3 sm:text-2xl">
+          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
             Facebook Landing Page Clone{" "}
             <span className="text-sm text-primary">
               (HTML, CSS & JavaScript)

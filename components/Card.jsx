@@ -12,7 +12,7 @@ const Card = () => {
             className="bg-[#1e1e1e] p-2 md:px-4 flex flex-col justify-center items-center rounded-md m-2 hover:ring-1 hover:ring-primary hover:text-primary cursor-pointer"
           >
             <span className="text-primary text-4xl">{card.icon}</span>
-            <h1 className="text-md sm:text-lg md:2xl py-5 uppercase">{card.title}</h1>
+            <h1 className="text-md text-cWhite sm:text-lg md:2xl py-5 uppercase">{card.title}</h1>
             <p className="text-justify text-gray-400">{card.description}</p>
           </div>
         );
