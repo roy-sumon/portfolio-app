@@ -10,7 +10,7 @@ import Facebook from "@/public/project-img/facebook.png";
 
 const Projectpage = () => {
   return (
-    <div className="p-2 md:mt-10 lg:mx-10">
+    <div className="bg-bgDark p-2 md:pt-10 lg:mx-10">
       <div className="text-center my-3 md:mb-5">
         <p className="text-sm text-cWhite">Latest <span className="text-primary">Works</span></p>
         <h1 className="text-2xl text-cWhite sm:text-3xl">

@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div className="sm:flex gap-1 md:pt-10 lg:px-10">
       <div className="px-3 sm:w-[50%]">
-        <p className="uppercase text-xs my-4 text-gray-400">Hello, This is</p>
+        <p className="uppercase text-xs py-4 text-gray-400">Hello, This is</p>
         <h1 className="text-cWhite text-3xl md:text-5xl">
           <span className="text-primary">Sumon</span> Roy
         </h1>

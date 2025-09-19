@@ -5,7 +5,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 const AboutPage = () => {
   return (
-    <div className="sm:flex px-3 gap-4 mt-5 md:mt-10 lg:mx-10">
+    <div className="bg-bgDark sm:flex px-3 gap-4 pt-5 md:pt-10 lg:mx-10">
       <div className="flex justify-center items-center sm:w-[45%]">
         <div className="mx-auto my-auto">
           <Image
@@ -63,7 +63,7 @@ const AboutPage = () => {
             Utilize debugging tools to identify and fix code issues.
           </p>
         </div>
-        <div className="flex text-cWhite items-center gap-2 sm:gap-5">
+        <div className="flex text-cWhite items-center gap-2 pb-5 sm:gap-5">
           <IoMdCheckmarkCircleOutline className="text-primary h-5 w-5" />
           <p className="text-sm sm:text-base">
             Implement state management with Redux toolkit.
