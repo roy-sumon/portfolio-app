@@ -36,7 +36,7 @@ const SocialMediaLinks = ({ className = "" }) => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={item.name}
-          className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-primary/50 text-gray-400 hover:text-white hover:bg-primary/10 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+          className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:border-primary/50 text-slate-600 hover:text-primary dark:text-gray-400 dark:hover:text-white dark:hover:bg-primary/10 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
         >
           {item.icon}
         </Link>
