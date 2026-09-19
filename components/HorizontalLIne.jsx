@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const HorizontalLIne = () => {
+const HorizontalLIne = ({ className = "" }) => {
   return (
-    <div className='my-4 w-[95%] mx-auto'>
-        <hr className="border-t-1 border-gray-800" />
+    <div className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8 md:my-16 ${className}`}>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
     </div>
-  )
-}
+  );
+};
 
 export default HorizontalLIne;

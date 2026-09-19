@@ -1,51 +1,98 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { FiAward, FiFolder, FiCpu, FiCheckCircle } from "react-icons/fi";
+
+const statsData = [
+  {
+    target: 4,
+    suffix: "+",
+    label: "Years Coding Journey",
+    sublabel: "Academic & project development",
+    icon: <FiAward className="w-5 h-5 text-primary" />,
+  },
+  {
+    target: 25,
+    suffix: "+",
+    label: "Projects Completed",
+    sublabel: "Web apps, APIs & desktop tools",
+    icon: <FiFolder className="w-5 h-5 text-primary" />,
+  },
+  {
+    target: 12,
+    suffix: "+",
+    label: "Technologies Mastered",
+    sublabel: "Modern full-stack frameworks",
+    icon: <FiCpu className="w-5 h-5 text-primary" />,
+  },
+  {
+    target: 350,
+    suffix: "+",
+    label: "Problems Solved",
+    sublabel: "Competitive programming & DSA",
+    icon: <FiCheckCircle className="w-5 h-5 text-primary" />,
+  },
+];
 
 const ShowcaseCard = () => {
-  const [yearsOfExperience, setYearsOfExperience] = useState(0);
-  const [projectsCompleted, setProjectsCompleted] = useState(0);
-  const [technologiesMastered, setTechnologiesMastered] = useState(0);
-  const [problemsSolved, setProblemsSolved] = useState(0);
+  const [counts, setCounts] = useState(statsData.map(() => 0));
 
   useEffect(() => {
-    // Function to increment values
-    const incrementValues = () => {
-      if (yearsOfExperience < 4) setYearsOfExperience(prev => prev + 1);
-      if (projectsCompleted < 25) setProjectsCompleted(prev => prev + 1);
-      if (technologiesMastered < 12) setTechnologiesMastered(prev => prev + 1);
-      if (problemsSolved < 350) setProblemsSolved(prev => prev + 10);
-    };
+    const duration = 1800;
+    const steps = 40;
+    const stepTime = duration / steps;
+    let step = 0;
 
-    const interval = setInterval(incrementValues, 100);
+    const timer = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      const ease = 1 - (1 - progress) * (1 - progress);
 
-    // Stop incrementing after reaching the target values
-    const timer = setTimeout(() => clearInterval(interval), 4000); 
+      setCounts(
+        statsData.map((stat) => Math.min(stat.target, Math.round(stat.target * ease)))
+      );
 
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timer);
-    };
-  }, [yearsOfExperience, projectsCompleted, technologiesMastered, problemsSolved]);
+      if (step >= steps) {
+        clearInterval(timer);
+        setCounts(statsData.map((stat) => stat.target));
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 lg:mx-10'>
-      <div className='flex items-center justify-center gap-2'>
-        <h1 className='text-xl md:text-6xl text-primary'>{yearsOfExperience}+</h1>
-        <p className='text-gray-400 text-sm md:text-base'>Years of Experience</p>
+    <section className="py-6 sm:py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {statsData.map((stat, idx) => (
+          <div
+            key={stat.label}
+            className="glass-panel glass-panel-hover p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between group"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                {stat.icon}
+              </div>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">
+                0{idx + 1}
+              </span>
+            </div>
+
+            <div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-baseline gap-1">
+                <span>{counts[idx]}</span>
+                <span className="text-primary font-bold">{stat.suffix}</span>
+              </div>
+              <h3 className="text-base font-semibold text-gray-200 mt-1">
+                {stat.label}
+              </h3>
+              <p className="text-xs text-gray-400 mt-1">
+                {stat.sublabel}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className='flex items-center justify-center gap-2'>
-        <h1 className='text-xl md:text-6xl text-primary'>{projectsCompleted}+</h1>
-        <p className='text-gray-400 text-sm md:text-base'>Projects Completed</p>
-      </div>
-      <div className='flex items-center justify-center gap-2'>
-        <h1 className='text-xl md:text-6xl text-primary'>{technologiesMastered}+</h1>
-        <p className='text-gray-400 text-sm md:text-base'>Technologies Mastered</p>
-      </div>
-      <div className='flex items-center justify-center gap-2'>
-        <h1 className='text-xl md:text-6xl text-primary'>{problemsSolved}+</h1>
-        <p className='text-gray-400 text-sm md:text-base'>Problems Solved</p>
-      </div>
-    </div>
+    </section>
   );
 };
 

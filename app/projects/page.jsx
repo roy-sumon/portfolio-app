@@ -1,197 +1,235 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiGithub } from "react-icons/fi";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 import ProjectHms from "@/public/project-img/hms.png";
 import BasicCalculator from "@/public/project-img/basic-calculator.png";
 import MessMealApp from "@/public/project-img/mess-meal-app.png";
 import Facebook from "@/public/project-img/facebook.png";
 
+const projectsData = [
+  {
+    id: 1,
+    title: "Hospital Management System",
+    category: "Desktop Application",
+    tags: ["Java Swing", "MySQL", "OOP", "Database Design"],
+    image: ProjectHms,
+    github: "https://github.com/roy-sumon/oop-1-javaSwing-hms.git",
+    demo: null,
+    description:
+      "A comprehensive healthcare desktop application engineered to streamline hospital operations, patient care, and administrative workflows.",
+    features: [
+      "Patient registration, clinical records management, and real-time appointment scheduling",
+      "Billing system with structured invoice generation and tracking",
+      "Secure MySQL relational database integration with safe credential storage",
+    ],
+  },
+  {
+    id: 2,
+    title: "Mess Meal Manager App",
+    category: "Full-Stack Web App",
+    tags: ["React JS", "Tailwind CSS", "PDF Export", "Responsive UI"],
+    image: MessMealApp,
+    github: "https://github.com/roy-sumon/mess-meal-manager-app.git",
+    demo: null,
+    description:
+      "A responsive financial and meal tracking application built for shared living spaces, hostels, and student residences.",
+    features: [
+      "Automated calculation of daily meal rates, deposits, and individual balances",
+      "One-click financial report export directly into formatted PDF documents",
+      "Fully responsive layout designed for mobile and desktop screens",
+    ],
+  },
+  {
+    id: 3,
+    title: "Basic Calculator GUI",
+    category: "Desktop Application",
+    tags: ["Java", "Java Swing", "AWT", "GUI Development"],
+    image: BasicCalculator,
+    github: "https://github.com/roy-sumon/basic-calculator-using-javaSwing.git",
+    demo: null,
+    description:
+      "An intuitive desktop calculator developed in Java Swing designed for seamless everyday arithmetic calculations.",
+    features: [
+      "Reliable execution of standard arithmetic operations with input error handling",
+      "Clean, distraction-free graphical user interface with responsive button grid",
+      "Built strictly adhering to Object-Oriented Programming (OOP) principles",
+    ],
+  },
+  {
+    id: 4,
+    title: "Facebook Landing Page Clone",
+    category: "Frontend Web Application",
+    tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    image: Facebook,
+    github: "https://github.com/roy-sumon/fb-clone-using-html-css-only.git",
+    demo: null,
+    description:
+      "A pixel-accurate recreation of Facebook's authentication and landing interface focusing on responsive web mechanics.",
+    features: [
+      "Faithfully recreated responsive typography, input fields, and brand layout",
+      "Interactive form state validation implemented with Vanilla JavaScript",
+      "Cross-browser testing ensuring seamless visual fidelity across screen resolutions",
+    ],
+  },
+];
+
 const Projectpage = () => {
+  const [filter, setFilter] = useState("All");
+
+  const categories = ["All", "Web", "Desktop"];
+
+  const filteredProjects =
+    filter === "All"
+      ? projectsData
+      : filter === "Web"
+      ? projectsData.filter((p) => p.category.includes("Web"))
+      : projectsData.filter((p) => p.category.includes("Desktop"));
+
   return (
-    <div className="bg-bgDark p-2 md:pt-10 lg:mx-10">
-      <div className="text-center my-3 md:mb-5">
-        <p className="text-sm text-cWhite">Latest <span className="text-primary">Works</span></p>
-        <h1 className="text-2xl text-cWhite sm:text-3xl">
-          Explore My Popular <span className="text-primary">Projects</span>
-        </h1>
-      </div>
-
-      {/* Project HMS using java swing and MySQL */}
-      <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] p-4 rounded-md sm:gap-4">
-        <div className="mx-auto my-auto">
-          <Image
-            src={ProjectHms}
-            width={450}
-            height={450}
-            className="rounded-md"
-            alt="project-1"
-          ></Image>
-        </div>
-        <div className="mx-auto my-auto mt-3">
-          <p className="text-xs text-primary">Desktop Application</p>
-          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
-            Hospital Management System{" "}
-            <span className="text-sm text-primary">(Java Swing & MySQL)</span>
-          </h1>
-          <p className="text-gray-400 text-sm mb-3 text-justify">
-            {" "}
-            The Hospital Management System is a comprehensive application
-            developed using Java Swing and MySQL to streamline hospital
-            operations and enhance patient care. This system includes essential
-            modules such as patient registration, appointment scheduling,
-            medical records management, and billing, all designed with a
-            user-friendly interface that allows for efficient navigation. By
-            integrating MySQL for secure data storage, the application ensures
-            that sensitive information is handled safely while improving
-            operational efficiency. This project not only showcases my skills in
-            Java programming and database management but also emphasizes my
-            commitment to creating effective solutions that improve healthcare
-            delivery.
+    <section id="projects" className="py-16 md:py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-3">
+            Featured Portfolio
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-400 to-orange-400">Projects</span> & Works
+          </h2>
+          <p className="mt-4 text-base text-gray-400 leading-relaxed">
+            A selection of software applications, full-stack tools, and desktop solutions I've
+            engineered.
           </p>
-          <Link
-            href="https://github.com/roy-sumon/oop-1-javaSwing-hms.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary text-2xl hover:text-white"
-          >
-            <FiGithub />
-          </Link>
-        </div>
-      </div>
 
-      {/* Project Basic Calculator using java Swing */}
-      <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] my-4 p-4 rounded-md sm:gap-4">
-        <div className="mx-auto mt-3">
-          <p className="text-xs text-primary">Desktop Application</p>
-          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
-            Basic Calculator{" "}
-            <span className="text-sm text-primary">(Java Swing)</span>
-          </h1>
-          <p className="text-gray-400 text-sm mb-3 text-justify">
-            {" "}
-            The Basic Calculator is a simple yet effective desktop application I
-            created using Java Swing. It’s designed to help users perform basic
-            arithmetic operations like addition, subtraction, multiplication,
-            and division with ease. The interface is clean and user-friendly,
-            making it accessible for anyone, whether you're a beginner or just
-            need a quick way to do some math. This project showcases my skills
-            in Java programming and GUI development, highlighting my ability to
-            build functional applications that prioritize user experience. I’m
-            proud of how this calculator combines practicality with a
-            straightforward design, making everyday calculations hassle-free.
-            It’s a great example of my approach to software development, where I
-            focus on creating tools that are both useful and easy to use.
-          </p>
-          <Link
-            href="https://github.com/roy-sumon/basic-calculator-using-javaSwing.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary text-2xl hover:text-white"
-          >
-            <FiGithub />
-          </Link>
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
+                  filter === cat
+                    ? "bg-primary text-white shadow-md shadow-primary/25"
+                    : "bg-white/[0.04] text-gray-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]"
+                }`}
+              >
+                {cat === "All" ? "All Works" : `${cat} Applications`}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="mx-auto my-auto mt-4 sm:mt-0">
-          <Image
-            src={BasicCalculator}
-            width={400}
-            height={350}
-            className="rounded-md"
-            alt="project-1"
-          ></Image>
-        </div>
-      </div>
 
-      {/* Project Mess Meal Manager App using react js and tailwind css */}
-      <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] p-4 rounded-md sm:gap-4">
-        <div className="mx-auto my-auto">
-          <Image
-            src={MessMealApp}
-            width={450}
-            height={450}
-            className="rounded-md"
-            alt="project-1"
-          ></Image>
-        </div>
-        <div className="mx-auto my-auto mt-3">
-          <p className="text-xs text-primary">Web Application</p>
-          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
-            Mess Meal Manager App{" "}
-            <span className="text-sm text-primary">
-              (ReactJS & Tailwind CSS)
-            </span>
-          </h1>
-          <p className="text-gray-400 text-sm mb-3 text-justify">
-            {" "}
-            The Mess Meal Manager App is a user-friendly tool designed to make
-            managing meal expenses in shared living situations a breeze. Built
-            with React JS and Tailwind CSS, this app allows users to easily
-            calculate total deposit balances, average meal rates, and individual
-            balances for all members, ensuring everyone stays informed about
-            their financial contributions. One of its standout features is the
-            ability to download financial data in PDF format, making
-            record-keeping simple and accessible. With a responsive design that
-            works well on any device, the app provides a smooth experience,
-            helping users keep track of their meal expenses without hassle.
-            Whether you're living in a hostel or sharing meals with friends,
-            this app is here to simplify your meal management.
-          </p>
-          <Link
-            href="https://github.com/roy-sumon/mess-meal-manager-app.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary text-2xl hover:text-white"
-          >
-            <FiGithub />
-          </Link>
-        </div>
-      </div>
+        <div className="space-y-10 md:space-y-12">
+          {filteredProjects.map((project, index) => {
+            const isEven = index % 2 === 1;
 
-      {/* Project Basic Calculator using java Swing */}
-      <div className="sm:grid sm:grid-cols-2 bg-[#1e1e1e] my-4 p-4 rounded-md sm:gap-4">
-        <div className="mx-auto mt-3">
-          <p className="text-xs text-primary">Web Application</p>
-          <h1 className="text-cWhite text-xl my-3 sm:text-2xl">
-            Facebook Landing Page Clone{" "}
-            <span className="text-sm text-primary">
-              (HTML, CSS & JavaScript)
-            </span>
-          </h1>
-          <p className="text-gray-400 text-sm mb-3 text-justify">
-            {" "}
-            I replicated the original design of Facebook's landing page using
-            HTML, CSS, and JavaScript, focusing on creating a responsive and
-            engaging user experience. This project involved meticulous attention
-            to detail to ensure that the layout, colors, and functionalities
-            closely mirrored the actual Facebook interface. By emphasizing
-            responsive design, I ensured that the landing page looks great and
-            functions well across various devices, from desktops to smartphones.
-            This hands-on experience not only sharpened my web development
-            skills but also deepened my understanding of user interface design
-            principles.
-          </p>
-          <Link
-            href="https://github.com/roy-sumon/fb-clone-using-html-css-only.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary text-2xl hover:text-white"
-          >
-            <FiGithub />
-          </Link>
-        </div>
-        <div className="mx-auto my-auto mt-4 sm:mt-0">
-          <Image
-            src={Facebook}
-            width={400}
-            height={500}
-            className="rounded-md"
-            alt="project-1"
-          ></Image>
+            return (
+              <div
+                key={project.id}
+                className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/[0.08] hover:border-primary/40 transition-all duration-300 shadow-xl group"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div
+                    className={`lg:col-span-6 ${
+                      isEven ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 group-hover:border-primary/40 transition-all duration-300 shadow-lg">
+                      <div className="aspect-[16/10] relative overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-bgDark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`lg:col-span-6 flex flex-col justify-between space-y-5 ${
+                      isEven ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-4 mb-3">
+                        <span className="text-xs font-mono font-semibold uppercase tracking-wider text-primary px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20">
+                          {project.category}
+                        </span>
+
+                        <div className="flex items-center gap-2">
+                          <Link
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-xl bg-white/[0.05] border border-white/10 text-gray-300 hover:text-white hover:bg-primary/20 hover:border-primary/40 transition-all"
+                            aria-label={`View ${project.title} source code on GitHub`}
+                          >
+                            <FiGithub className="w-4 h-4" />
+                          </Link>
+                          {project.demo && (
+                            <Link
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-2 rounded-xl bg-white/[0.05] border border-white/10 text-gray-300 hover:text-white hover:bg-primary/20 hover:border-primary/40 transition-all"
+                              aria-label={`View live demo of ${project.title}`}
+                            >
+                              <FiExternalLink className="w-4 h-4" />
+                            </Link>
+                          )}
+                        </div>
+                      </div>
+
+                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-primary transition-colors duration-200">
+                        {project.title}
+                      </h3>
+
+                      <p className="mt-3 text-sm sm:text-base text-gray-300 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <ul className="mt-4 space-y-2 text-xs sm:text-sm text-gray-400">
+                        {project.features.map((feat, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-white/[0.04] text-gray-300 border border-white/[0.08]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-white transition-colors"
+                      >
+                        Explore Repository &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

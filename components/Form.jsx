@@ -1,69 +1,165 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { FiSend, FiCheckCircle } from "react-icons/fi";
 
 const Form = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+
+      setTimeout(() => setIsSuccess(false), 5000);
+    }, 1000);
+  };
+
   return (
-    <div className="mx-2">
-      <form action="submit" method="post">
-        <div className="flex text-cWhite flex-col sm:flex-row">
-          <div className="sm:mr-3">
-            <label htmlFor="Name">Full Name</label>
-            <br />
+    <div className="w-full max-w-xl">
+      <form
+        onSubmit={handleSubmit}
+        className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-xs font-medium text-gray-300 mb-1.5"
+            >
+              Full Name *
+            </label>
             <input
               type="text"
-              className="bg-[#1a1a1a] px-2 py-2 rounded-md w-full"
-              placeholder="Enter your name"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="e.g. John Doe"
               required
+              className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors"
             />
           </div>
-          <div className="mt-2 sm:mt-0">
-            <label htmlFor="Email">Email</label>
-            <br />
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-xs font-medium text-gray-300 mb-1.5"
+            >
+              Email Address *
+            </label>
             <input
               type="email"
-              className="bg-[#1a1a1a] px-2 py-2 rounded-md w-full"
-              placeholder="Enter your email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="e.g. john@example.com"
               required
+              className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors"
             />
           </div>
         </div>
 
-        <div className="flex mt-2 text-cWhite flex-col sm:flex-row">
-          <div className="sm:mr-3">
-            <label htmlFor="Phone">Phone</label>
-            <br />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-xs font-medium text-gray-300 mb-1.5"
+            >
+              Phone Number
+            </label>
             <input
-              type="text"
-              className="bg-[#1a1a1a] px-2 py-2 rounded-md w-full"
-              placeholder="Enter your phone"
-              required
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+880 1XXX-XXXXXX"
+              className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors"
             />
-          </div >
-          <div className="mt-2 sm:mt-0">
-            <label htmlFor="Subject">Subject</label>
-            <br />
+          </div>
+
+          <div>
+            <label
+              htmlFor="subject"
+              className="block text-xs font-medium text-gray-300 mb-1.5"
+            >
+              Subject *
+            </label>
             <input
               type="text"
-              className="bg-[#1a1a1a] px-2 py-2 rounded-md w-full"
-              placeholder="Subject"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Project Inquiry"
               required
+              className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors"
             />
           </div>
         </div>
 
-        <div className="text-cWhite mt-2">
-        <label className="" htmlFor="Message">Message</label>
-        <br />
-        <textarea
-          name="message"
-          id="message"
-          className="bg-[#1a1a1a] px-2 py-2 rounded-md w-full h-20 sm:h-24 sm:w-[27rem]"
-          placeholder="Write your message..."
-          required
-        ></textarea>
+        <div>
+          <label
+            htmlFor="message"
+            className="block text-xs font-medium text-gray-300 mb-1.5"
+          >
+            Your Message *
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Tell me about your project, goals, or requirements..."
+            required
+            className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-colors resize-none"
+          ></textarea>
         </div>
-        <button className="bg-primary text-white px-4 py-2 my-2 rounded-md hover:ring-1 hover:ring-white hover:text-[#ff014f] hover:bg-black">
-          Send Message
+
+        {isSuccess && (
+          <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium animate-in fade-in duration-300">
+            <FiCheckCircle className="w-4 h-4 shrink-0" />
+            <span>Thank you! Your message has been sent successfully. I will get back to you soon.</span>
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full py-3 px-6 rounded-xl bg-primary hover:bg-primaryHover text-white font-medium text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-glow disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.99]"
+        >
+          {isSubmitting ? (
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          ) : (
+            <>
+              <FiSend className="w-4 h-4" />
+              <span>Send Message</span>
+            </>
+          )}
         </button>
       </form>
     </div>

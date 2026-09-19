@@ -7,46 +7,50 @@ import { MdOutlinePayment } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 
 const cardData = {
-    cards: [
-      {
-        id: 1,
-        title: "Web Development",
-        icon: <CiGlobe />,
-        description: "Modern and mobile ready website that will help you reach all of your marketing."
-        
-      },
-      {
-        id: 2,
-        title: "UX / UI Desige",
-        icon: <FaLaptopCode />,
-        description: "Create intutive interfaces and delightful user experiences by blending asethetics with usability."
-      },
-      {
-        id: 3,
-        title: "App Development",
-        icon: <IoIosPhonePortrait />,
-        description: "Modern and mobile ready application that will help you reach all of your marketing."
-      },
-      {
-        id: 4,
-        title: "API Integration",
-        icon: <SiAmazonapigateway />,
-        description: "Developing a highly secure, fast and scalable APIs both REST and GraphQL."
-      },
-      {
-        id: 5,
-        title: "Payment Integration",
-        icon: <MdOutlinePayment />,
-        description: "Automate the process of payments to allow users pay right on your platform."
-      },
-      {
-        id: 6,
-        title: "Mentorship",
-        icon: <IoIosPeople />,
-        description: "Finds great joy in sharing my knowledge with others. As a technical mentor this allows me to give to the community."
-      }
-    ]
-  };
-  
-  export default cardData;
-  
+  cards: [
+    {
+      id: 1,
+      title: "Web Development",
+      icon: <CiGlobe />,
+      description:
+        "Building responsive, high-performance web applications using modern frameworks like React, Next.js, and Tailwind CSS.",
+    },
+    {
+      id: 2,
+      title: "UI / UX Design",
+      icon: <FaLaptopCode />,
+      description:
+        "Crafting intuitive user interfaces and engaging experiences that harmoniously blend aesthetic design with seamless usability.",
+    },
+    {
+      id: 3,
+      title: "Full-Stack Applications",
+      icon: <IoIosPhonePortrait />,
+      description:
+        "Developing end-to-end web and software solutions with robust frontends, scalable server logic, and clean APIs.",
+    },
+    {
+      id: 4,
+      title: "API Architecture",
+      icon: <SiAmazonapigateway />,
+      description:
+        "Designing and integrating secure, scalable RESTful APIs with Node.js, Express, and modern database connectivity.",
+    },
+    {
+      id: 5,
+      title: "Database Management",
+      icon: <MdOutlinePayment />,
+      description:
+        "Structuring and optimizing relational (MySQL, SQL) and NoSQL (MongoDB) databases for speed, reliability, and security.",
+    },
+    {
+      id: 6,
+      title: "Technical Mentorship",
+      icon: <IoIosPeople />,
+      description:
+        "Passionate about sharing knowledge, collaborating in agile teams, and helping peers master modern software engineering practices.",
+    },
+  ],
+};
+
+export default cardData;
