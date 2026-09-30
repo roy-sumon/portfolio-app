@@ -131,7 +131,7 @@ const projectsData = [
   },
   {
     id: 7,
-    title: "Bazar List & Budget Tracker (বাজারের তালিকা v2.0)",
+    title: "Bazar List & Budget Tracker v2.0",
     category: "Frontend Web Application",
     filterType: "frontend",
     featured: false,
